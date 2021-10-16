@@ -14,4 +14,4 @@ function inputValidator(event) {
   textInput.classList.add('invalid');
 }
 
-textInput.addEventListener('input', inputValidator);
+textInput.addEventListener('blur', inputValidator);
