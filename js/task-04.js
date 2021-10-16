@@ -7,8 +7,8 @@
 let counterValue = 0;
 
 const counterUi = document.querySelector('#value');
-const incrementBtn = document.querySelector('[data-action="increment"]');
-const decrementBtn = document.querySelector('[data-action="decrement"]');
+const incrementBtn = document.querySelector('button[data-action="increment"]');
+const decrementBtn = document.querySelector('button[data-action="decrement"]');
 
 function addition() {
   counterUi.textContent = counterValue += 1;
