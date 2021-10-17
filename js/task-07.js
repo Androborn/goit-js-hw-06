@@ -3,8 +3,8 @@
 const fontSizeSlider = document.querySelector('#font-size-control');
 const adjustedText = document.querySelector('#text');
 
-function fontSizeAlterer(event) {
+fontSizeSlider.addEventListener('input', fontSizeAlter);
+
+function fontSizeAlter(event) {
   return (adjustedText.style.fontSize = `${event.currentTarget.value}px`);
 }
-
-fontSizeSlider.addEventListener('input', fontSizeAlterer);

@@ -14,7 +14,9 @@ const ingredients = [
 // Добавит элементу класс item.
 // После чего вставит все <li> за одну операцию в список ul.ingredients.
 
-function markupAdder(targetMarkupElement, features) {
+const ingridientsMarkup = document.querySelector('#ingredients');
+
+function markupAdd(targetMarkupElement, features) {
   let featuresList = [];
 
   features.forEach(ingridient => {
@@ -29,6 +31,4 @@ function markupAdder(targetMarkupElement, features) {
   targetMarkupElement.append(...featuresList);
 }
 
-const ingridientsMarkup = document.querySelector('#ingredients');
-
-markupAdder(ingridientsMarkup, ingredients);
+markupAdd(ingridientsMarkup, ingredients);

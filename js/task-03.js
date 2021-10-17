@@ -20,6 +20,8 @@ const images = [
 // Все элементы галереи должны добавляться в DOM за одну операцию вставки.
 // Добавь минимальное оформление галереи флексбоксами или гридами через CSS классы.
 
+const galleryMarkup = document.querySelector('.gallery');
+
 const galleryMarkupGenerator = (markupPlacement, itemsCollection) =>
   markupPlacement.insertAdjacentHTML(
     'beforeend',
@@ -30,7 +32,5 @@ const galleryMarkupGenerator = (markupPlacement, itemsCollection) =>
       )
       .join(''),
   );
-
-const galleryMarkup = document.querySelector('.gallery');
 
 galleryMarkupGenerator(galleryMarkup, images);

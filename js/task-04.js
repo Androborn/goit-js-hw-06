@@ -10,6 +10,9 @@ const counterUi = document.querySelector('#value');
 const incrementBtn = document.querySelector('button[data-action="increment"]');
 const decrementBtn = document.querySelector('button[data-action="decrement"]');
 
+incrementBtn.addEventListener('click', addition);
+decrementBtn.addEventListener('click', substraction);
+
 function addition() {
   counterUi.textContent = counterValue += 1;
 }
@@ -17,6 +20,3 @@ function addition() {
 function substraction() {
   counterUi.textContent = counterValue -= 1;
 }
-
-incrementBtn.addEventListener('click', addition);
-decrementBtn.addEventListener('click', substraction);

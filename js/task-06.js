@@ -6,12 +6,12 @@
 
 const textInput = document.querySelector('#validation-input');
 
-function inputValidator(event) {
+textInput.addEventListener('blur', inputValidate);
+
+function inputValidate(event) {
   if (event.currentTarget.value.length === +textInput.dataset.length) {
     return textInput.classList.replace('invalid', 'valid');
   }
 
   textInput.classList.add('invalid');
 }
-
-textInput.addEventListener('blur', inputValidator);
