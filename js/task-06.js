@@ -6,34 +6,41 @@
 
 const textInput = document.querySelector('#validation-input');
 
-textInput.addEventListener('blur', inputValidate);
+// Solution #1 //
+
+// textInput.addEventListener('blur', inputValidate);
 
 // function inputValidate(event) {
-//   if (textInput.classList.value === '') {
-//     if (event.currentTarget.value.length === +textInput.dataset.length) {
-//       return textInput.classList.add('valid');
-//     }
-
-//     textInput.classList.add('invalid');
+//   if (event.currentTarget.value.length === +textInput.dataset.length) {
+//     return textInput.classList.value === ''
+//       ? textInput.classList.add('valid')
+//       : textInput.classList.replace('invalid', 'valid');
 //   }
 
-//   if (textInput.classList !== '') {
-//     if (event.currentTarget.value.length === +textInput.dataset.length) {
-//       return textInput.classList.replace('invalid', 'valid');
-//     }
-
-//     textInput.classList.replace('valid', 'invalid');
-//   }
+//   textInput.classList.value === ''
+//     ? textInput.classList.add('invalid')
+//     : textInput.classList.replace('valid', 'invalid');
 // }
 
-function inputValidate(event) {
-  if (event.currentTarget.value.length === +textInput.dataset.length) {
-    return textInput.classList.value === ''
-      ? textInput.classList.add('valid')
-      : textInput.classList.replace('invalid', 'valid');
-  }
+// Solution #2 //
 
-  textInput.classList.value === ''
-    ? textInput.classList.add('invalid')
-    : textInput.classList.replace('valid', 'invalid');
+inputValidate(textInput);
+
+function inputValidate(input) {
+  const { dataset, classList } = input;
+  const requiredLength = +dataset.length;
+
+  input.addEventListener('blur', classSet);
+
+  function classSet(event) {
+    if (event.currentTarget.value.length === requiredLength) {
+      return classList.value
+        ? classList.replace('invalid', 'valid')
+        : classList.add('valid');
+    }
+
+    classList.value
+      ? classList.replace('valid', 'invalid')
+      : classList.add('invalid');
+  }
 }
