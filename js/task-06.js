@@ -28,19 +28,21 @@ inputValidate(textInput);
 
 function inputValidate(input) {
   const { dataset, classList } = input;
-  const requiredLength = +dataset.length;
-
   input.addEventListener('blur', classSet);
 
   function classSet(event) {
-    if (event.currentTarget.value.length === requiredLength) {
-      return classList.value
-        ? classList.replace('invalid', 'valid')
-        : classList.add('valid');
+    if (event.currentTarget.value.length === +dataset.length) {
+      if (classList.value) {
+        return classList.replace('invalid', 'valid');
+      } else {
+        return classList.add('valid');
+      }
+    } else {
+      if (classList.value) {
+        return classList.replace('valid', 'invalid');
+      } else {
+        return classList.add('invalid');
+      }
     }
-
-    classList.value
-      ? classList.replace('valid', 'invalid')
-      : classList.add('invalid');
   }
 }
